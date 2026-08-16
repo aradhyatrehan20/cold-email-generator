@@ -232,7 +232,7 @@ API keys and other secrets must **never** be committed to GitHub. Store them onl
 
 ---
 
-## 🖼️ Screenshots
+## 🖼️ Screenshot of Output
 
 
 ![Application UI](Output.png)
