@@ -179,16 +179,29 @@ AtliQ
 cold-mail-generator/
 │
 ├── app/
-│   └── main.py            # Streamlit application entry point
+│   ├── resource/            # Portfolio data used for vector search (e.g. portfolio CSV)
+│   ├── chains.py            # LangChain prompt chains for extraction & email generation
+│   ├── main.py               # Streamlit application entry point
+│   ├── portfolio.py          # Portfolio loading & vector database (ChromaDB) logic
+│   └── utils.py               # Helper/utility functions
 │
-├── imgs/
-│   └── img.png             # Application UI screenshot
-│
-├── requirements.txt        # Python dependencies
-├── .env                     # API keys — NOT committed to GitHub
-├── .gitignore
-└── README.md
+├── Output.png                # Application UI screenshot
+├── requirements.txt          # Python dependencies
+├── .env                        # API keys — must NOT be committed to GitHub
+
 ```
+
+**Code breakdown:**
+
+| File | Role |
+|---|---|
+| `main.py` | Streamlit UI — takes the careers URL as input and displays the generated email |
+| `chains.py` | Defines the LangChain prompt chains used to extract job details and generate the email via Groq |
+| `portfolio.py` | Loads portfolio data and handles the ChromaDB vector store and similarity search |
+| `utils.py` | Shared helper functions used across the app |
+| `resource/` | Holds the portfolio data (e.g. a CSV of project links) used to build the vector database |
+
+---
 
 ---
 
@@ -216,13 +229,6 @@ streamlit run app/main.py
 
 API keys and other secrets must **never** be committed to GitHub. Store them only in your local `.env` file, which should always be excluded from version control.
 
-**`.gitignore` example:**
-
-```
-.env
-.venv/
-__pycache__/
-```
 
 ---
 
@@ -230,9 +236,9 @@ __pycache__/
 
 | Screenshot | Path |
 |---|---|
-| Application UI | `imgs/img.png` |
+| Application UI | `Output.png` |
 
-*(Screenshot not added yet — will be added to the `imgs/` folder.)*
+
 
 ---
 
