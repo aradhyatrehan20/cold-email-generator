@@ -234,9 +234,8 @@ API keys and other secrets must **never** be committed to GitHub. Store them onl
 
 ## 🖼️ Screenshots
 
-| Screenshot | Path |
-|---|---|
-| Application UI | `Output.png` |
+
+![Application UI](Output.png)
 
 
 
